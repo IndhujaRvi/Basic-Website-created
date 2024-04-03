@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../offcanvas"
+		},
+		{
+			"path": "../accordian"
+		},
+		{
+			"path": "../nonsem"
+		},
+		{
+			"path": "../semantic"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "whole"
+	}
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .card {
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+</style>
+</head>
+<body>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="card">
+        <img src="7 feet multi speed rotavators.jpg" alt="Image 1">
+        <p>Card 1</p>
+      </div>
+      <div class="card">
+        <img src="Fieldind robust rotavators.jpg" alt="Image 2">
+        <p>Card 2</p>
+      </div>
+      <div class="card">
+        <img src="image3.jpg" alt="Image 3">
+        <p>Card 3</p>
+      </div>
+      <div class="card">
+        <img src="image4.jpg" alt="Image 4">
+        <p>Card 4</p>
+      </div>
+      <div class="card">
+        <img src="image5.jpg" alt="Image 5">
+        <p>Card 5</p>
+      </div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="slide('prev')">Previous</button>
+      <button onclick="slide('next')">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    let currentPosition = 0;
+
+    function slide(direction) {
+      const cardWidth = document.querySelector('.card').clientWidth;
+      const maxPosition = -(carousel.children.length - 1) * cardWidth;
+
+      if (direction === 'prev') {
+        currentPosition += cardWidth;
+      } else {
+        currentPosition -= cardWidth;
+      }
+
+      if (currentPosition > 0) {
+        currentPosition = maxPosition;
+      } else if (currentPosition < maxPosition) {
+        currentPosition = 0;
+      }
+
+      carousel.style.transform = `translateX(${currentPosition}px)`;
+    }
+  </script>
+</body>
+</html>
